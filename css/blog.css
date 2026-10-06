@@ -6,23 +6,23 @@
    1. Blog - Weekblokken (mobiel, tablet en desktop)
    ========================================== */
 
-.weken-container {
-  margin-top: 20px;
-  display: flex;
+.weken-container {          /* de container voor alle weekblokken */
+  margin-top: 20px;   
+  display: flex;            
   flex-direction: column;
   gap: 15px;
   width: 100%;
 }
 
-.week-card {
-  border: 2px solid #d93838;    /* rode rand */
-  border-radius: 6px;
+.week-card {                    /*dit is voor elke week een blokje */
+  border: 2px solid #d33737;    
+  border-radius: 10px;
   overflow: hidden;
-  background-color: #ffffff;
+  background-color: #0c0c0c;
   width: 100%;
 }
 
-.week-header {
+.week-header {               /*wat er in de wweek header staat */
   width: 100%;
   padding: 12px 15px;
   background: #ffffff;
@@ -35,40 +35,39 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  transition: background-color 0.2s ease;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease;    /*hier de animatie voor de hoffer gemaakt */
+  box-sizing: border-box;                   
 }
 
-.week-header span:first-child {
-  flex: 1;                      /* tekst-span mag krimpen/wrappen */
-  min-width: 0;                 /* voorkomt dat flex de container opblaast */
+.week-header span:first-child {      
+  flex: 1;                      /* dit zorgt ervorr dat de tekst van de weekheader de beschikbare ruimte inneemt */
+  min-width: 0;                 /* voorkomt dat de tekst uitrekt buiten de container */
 }
 
-.week-header:hover {
-  background-color: #f5f5f5;
+.week-header:hover {  
+  background-color: #b4a2a2;      /*voegt een kleur toe als je een weekheader open/dichtmaakt */
 }
 
-.week-content {
-  max-height: 0;
-  overflow: hidden;
+.week-content {                     /*hier maak ik de inhoud van de weekbblokken standaard dicht.*/
+  max-height: 0;                       
+  overflow: hidden;                 /* met overflow: hidden zorg ik ervoor dat de inhoud niet zichtbaar is als het blok dicht is */
   transition: max-height 0.3s ease-out, padding 0.3s ease; /* animatie voor het openen/sluiten van de inhoud */
-  padding: 0 20px;
-  background-color: #fafafa;
+  padding: 0 20px;   
+  background-color: #fafafa;      
   box-sizing: border-box;
 }
 
-/* Klasse die wordt toegevoegd met JS als een blok open is */
-.week-card.open .week-content {
+.week-card.open .week-content {       /*als weekbllok open is is de inhoud dus zichtbaarr*/
   padding: 15px 20px;
   border-top: 1px solid #eeeeee;
 }
 
-.pijl {
-  transition: transform 0.3s ease;
+.pijl {                              /*hier heb ik de pijlen een transitie gegeven zodat het mooi draaid als het open of dicht gaat*/
+  transition: transform 0.5s ease;
   flex-shrink: 0;
 }
 
-.week-card.open .pijl {
+.week-card.open .pijl {       /*en hier heb ik de pijl 180 graden laten draaien*/
   transform: rotate(180deg);
 }
 

@@ -35,7 +35,7 @@ const projectenData = [
 
 // DOM Elementen selecteren
 const projectenContainer = document.getElementById("projecten-container");
-const searchInput = document.getElementById("search-input");
+const searchInput = document.getElementById("search-input"); // Input veld voor zoektermen
 const categoryFilter = document.getElementById("category-filter");
 const sortSelect = document.getElementById("sort-select");
 
@@ -45,7 +45,7 @@ function renderProjecten(projecten) {
   projectenContainer.innerHTML = "";
 
   if (projecten.length === 0) {
-    const noResults = document.createElement("p");
+    const noResults = document.createElement("p");  
     noResults.className = "no-results";
     noResults.textContent = "Geen projecten gevonden die voldoen aan de zoekcriteria.";
     projectenContainer.appendChild(noResults);

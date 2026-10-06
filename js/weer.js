@@ -1,5 +1,5 @@
 // ==========================================
-// 1. PURE HULPFUNCTIES (Logica & Transformatie)
+// 1.  HULPFUNCTIES 
 // ==========================================
 
 /**
@@ -18,15 +18,15 @@ function vertaalWeercode(code) {
     61: { tekst: "Lichte regen", icoon: "🌧️" },
     63: { tekst: "Matige regen", icoon: "🌧️" },
     65: { tekst: "Zware regen", icoon: "🌧️" },
-    80: { tekst: "Lichte buien", icoon: "🌦️" },
+    80: { tekst: "Lichte buien", icoon: "🌦️" }, 
     81: { tekst: "Matige buien", icoon: "🌦️️" },
     82: { tekst: "Zware buien", icoon: "🌧️" },
     95: { tekst: "Onweersbui", icoon: "⛈️" },
     96: { tekst: "Onweer met lichte hagel", icoon: "⛈️" },
-    99: { tekst: "Onweer met zware hagel", icoon: "⛈️" }
+    99: { tekst: "Onweer met zware hagel", icoon: "⛈️" },
   };
 
-  if (exacteCodes[code]) {
+  if (exacteCodes[code]) {  // Controleer of de code exact in de lijst staat
     return exacteCodes[code];
   }
 
@@ -45,7 +45,7 @@ function vertaalWeercode(code) {
 }
 
 // ==========================================
-// 2. API / FETCH FUNCTIE (Enkele verantwoordelijkheid: alleen data ophalen)
+// 2. API / FETCH FUNCTIE 
 // ==========================================
 
 /**
@@ -74,7 +74,7 @@ async function haalWeerData(lat = 52.07, lon = 4.30) {
 }
 
 // ==========================================
-// 3. DOM MANIPULATIE FUNCTIES (Geen innerHTML, maar createElement & textContent)
+// 3. DOM MANnIPULATIE FUNCTIES
 // ==========================================
 
 /**
@@ -121,7 +121,7 @@ function toonWeerFout(container, bericht) {
   const foutP = document.createElement("p");
   foutP.className = "weer-fout";
   foutP.setAttribute("role", "alert");
-  foutP.textContent = `⚠ ${bericht}`;
+  foutP.textContent = `⚠ ${bericht}`;          // Voeg een waarschuwingssymbool toe voor visuele feedback
 
   container.replaceChildren(foutP);
 }
@@ -141,7 +141,7 @@ function toonLaadStatus(container) {
 // 4. INITIALISATIE & COORDINATIE
 // ==========================================
 
-async function initWeer() {
+async function Weer() {
   const container = document.getElementById("weer-container");
   if (!container) return;
 
@@ -155,7 +155,7 @@ async function initWeer() {
 
   try {
     // 1. Data ophalen (gescheiden functie)
-    const { temperatuur, code } = await haalWeerData(52.07, 4.30);
+    const { temperatuur, code } = await haalWeerData(52.07, 4.30); // Standaardcoördinaten voor Den Haag
 
     // 2. Transformatie (gescheiden functie)
     const weerInfo = vertaalWeercode(code);
@@ -173,5 +173,5 @@ async function initWeer() {
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initWeer);
 } else {
-  initWeer();
+  Weer();
 }

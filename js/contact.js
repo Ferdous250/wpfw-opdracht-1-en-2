@@ -7,9 +7,9 @@ function isNaamGeldig(waarde) {
   return waarde.trim().length > 0;
 }
 
-// Controleert e-mailadres met een simpele reguliere expressie (iets@iets.iets)
+// Controleert e-mailadres (iets@iets.iets)
 function isEmailGeldig(waarde) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //
   return emailRegex.test(waarde.trim());
 }
 
@@ -47,7 +47,7 @@ function valideerVeld(veldConfig) {
 // 3. HOOFDFUNCTIE & EVENT LISTENERS
 // ==========================================
 
-function initContactForm() {
+function ContactForm() {
   const form = document.getElementById("contact-form");
   if (!form) return;
 
@@ -124,5 +124,5 @@ function initContactForm() {
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initContactForm);
 } else {
-  initContactForm();
+  ContactForm();
 }

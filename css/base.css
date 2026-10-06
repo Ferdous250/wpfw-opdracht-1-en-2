@@ -1,5 +1,5 @@
 /* ==========================================
-   base.css - reset, basisstijlen en hoofdcontainer (op elke pagina)
+   base.css - reset, basisstijlen en hoofdcontainer (ditt gebeurd op elke pagina dus op alle HTML-bestanden)
    ========================================== */
 
 /* ==========================================
@@ -7,8 +7,8 @@
    ========================================== */
 
 *,
-*::before,
-*::after {
+*::before,                
+*::after {  
   box-sizing: border-box; /* padding en border tellen niet meer op bij de breedte */
   margin: 0;
   padding: 0;
@@ -23,7 +23,7 @@ html {
 }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif; /* een moderne, goed leesbare font */
+  font-family: "Segoe UI", Arial, sans-serif; /* goed leesbare font */
   line-height: 1.6;        /* zorgt voor een betere leesbaarheid */
   color: #131313;
   background-color: #ffffff;
@@ -42,25 +42,25 @@ p {
   margin-bottom: 1em;    /* voegt ruimte toe onder de paragrafen */
 }
 
-a {
+a {                      /* voegt een kleur toe aan de links */
   color: #242979;
   text-decoration: none;
 }
 
 a:hover { /* voegt een onderstreping toe bij hover */
-  text-decoration: underline;
+  text-decoration: underline;  
 }
 
 /* ==========================================
-   3. Algemene Layout-container
+   3. Algemene Layout
    ========================================== */
 
 main {
   flex: 1;               /* main neemt alle overgebleven ruimte, footer zakt naar onderen */
-  width: 100%;
-  max-width: 900px;
+  width: 100%; 
+  max-width: 900px;  
   margin: 0 auto;        /* centreert de content horizontaal */
-  padding: 1.5rem;
+  padding: 1.5rem;  
 }
 
 

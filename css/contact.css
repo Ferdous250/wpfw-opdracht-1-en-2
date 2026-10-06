@@ -3,17 +3,17 @@
    ========================================== */
 
 /* ==========================================
-   1. Contactformulier & Validatie Styling (WCAG AA Compliant)
+   1. Contactformulier & Validatie Styling (WCAG AA)
    ========================================== */
 
-.contact-sectie {
-  max-width: 600px;
+.contact-sectie { 
+  max-width: 600px; 
   margin: 0 auto;
   padding: 1.5rem;
 }
 
-.form-group {
-  display: flex;
+.form-group { 
+  display: flex; 
   flex-direction: column;
   margin-bottom: 1.25rem;
 }
@@ -31,7 +31,7 @@
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea { 
   padding: 0.75rem;
   border: 2px solid #1a1a2e;
   border-radius: 6px;
@@ -40,22 +40,22 @@
   background-color: #ffffff;
 }
 
-/* Zichtbare focusring voor toetsenbord en schermlezers */
-.form-group input:focus,
+ /*heb hier een focus-state toegevoegd zodat alle velden duidelijk is ook voor WCAG AA*/
+.form-group input:focus, 
 .form-group textarea:focus {
   outline: 3px solid #242979;
   outline-offset: 2px;
   border-color: #242979;
 }
 
-/* Ongeldig veld via aria-invalid="true" */
-.form-group input[aria-invalid="true"],
-.form-group textarea[aria-invalid="true"] {
+/*Ongeldig veld via aria-invalid="true" */
+.form-group input[aria-invalid="true"],    /* aria invalid zorgt ervoor dat het veld dus als fout word gezien.*/
+.form-group textarea[aria-invalid="true"] {  
   border-color: #c62828;
   background-color: #ffebee;
 }
 
-/* Foutmeldingen met goedgekeurd WCAG contrast (#c62828 op wit is > 5.5:1) */
+/* hier heb ik de foutmelding toegevoegd die zichtbaar word als er een fout is in het veld.*/
 .fout-melding {
   color: #c62828;
   font-size: 0.875rem;
@@ -63,19 +63,19 @@
   margin-top: 0.4rem;
 }
 
-/* Verberg foutelementen visueel zolang er geen tekst in staat */
-.fout-melding:empty {
+/* dit zorgt er dus voor dat de foutmelding niet zichtbaar is als er geen fout is.*/
+.fout-melding:empty {  
   display: none;
 }
 
-/* Bevestigings- / statusmelding na verzenden */
+/* hier de statusmelding na verzenden */
 .status-melding {
   margin-top: 1.25rem;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.status-melding.succes {
+.status-melding.succes {  /*hier toont het de meding bij succes met groene kleur en achtergrond*/
   color: #1b5e20;
   background-color: #e8f5e9;
   padding: 0.8rem;
@@ -83,7 +83,7 @@
   border: 1px solid #a5d6a7;
 }
 
-/* Submit knop met duidelijke focus-state */
+/* hier heb ikde knop verstuur met groote en kleur aangemaakt  */
 .btn-submit {
   background-color: #1a1a2e;
   color: #ffffff;
@@ -96,16 +96,17 @@
   width: 100%;
 }
 
+/*dit heb ik toegeveoegd omdat het dan een hover effect heeft en naar een ander kleur veranderd.*/
 .btn-submit:hover {
   background-color: #242979;
 }
 
-.btn-submit:focus-visible {
-  outline: 3px solid #242979;
+.btn-submit:focus-visible {  /*hier dus de outline toegevoegd zodat ziet waar je staat met je toetsenboord*/
+  outline: 3px solid #242979;     
   outline-offset: 3px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 600px) { /*dit gedaan zodat de knop niet hele breedte van de scherm neemt op grotere schermen*/
   .btn-submit {
     width: auto;
   }
