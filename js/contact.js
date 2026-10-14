@@ -47,12 +47,9 @@ function valideerVeld(veldConfig) {
 // 3. HOOFDFUNCTIE & EVENT LISTENERS
 // ==========================================
 
-function ContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  // Configuratie-array van de te valideren velden
-  const veldenConfig = [
+function maakVelden() {
+ //hier maak 
+  return [
     {
       input: document.getElementById("naam"),
       foutEl: document.getElementById("naam-fout"),
@@ -72,9 +69,9 @@ function ContactForm() {
       foutTekst: "Je bericht moet minimaal 10 tekens bevatten."
     }
   ];
+}
 
-  const statusMelding = document.getElementById("contact-melding");
-
+function liveValidatie(veldenConfig) {
   // Live fouten wissen wanneer de gebruiker tikt en het veld herstelt
   veldenConfig.forEach((item) => {
     item.input.addEventListener("input", () => {
@@ -83,46 +80,74 @@ function ContactForm() {
       }
     });
   });
+}
+
+function resetStatusMelding(statusMelding) {
+  statusMelding.textContent = "";
+  statusMelding.className = "status-melding";
+}
+
+function toonSucces(statusMelding) {
+  statusMelding.textContent = "Bedankt! Je bericht is correct verwerkt.";
+  statusMelding.classList.add("succes");
+}
+
+function verwerkVerzending(event, form, veldenConfig, statusMelding) {
+  event.preventDefault(); // Voorkom standaard browser-verzending
+
+  resetStatusmelding(statusMelding);
+
+  const eersteFouteVeld = valideerAlleVelden(veldenConfig);
+
+  // Bij fouten: focus op het eerste ongeldige veld
+  if (eersteFouteVeld) {
+    eersteFouteVeld.focus();
+    return;
+  }
+
+  // Bij succes: Toon bevestiging en reset het formulier
+  toonSucces(statusMelding);
+  
+  form.reset();
+}
+
+function ContactForm() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  const veldenConfig = maakVeldenConfig();
+
+  const statusMelding = document.getElementById("contact-melding");
+
+  koppelLiveValidatie(veldenConfig);
 
   // Afhandeling bij het verzenden van het formulier
   form.addEventListener("submit", (event) => {
-    event.preventDefault(); // Voorkom standaard browser-verzending
-
-    // Reset statusmelding
-    statusMelding.textContent = "";
-    statusMelding.className = "status-melding";
-
-    let isFormulierGeldig = true;
-    let eersteFouteVeld = null;
-
-    // Door alle velden lopen en valideren
-    veldenConfig.forEach((item) => {
-      const geldigeInvoer = valideerVeld(item);
-      if (!geldigeInvoer) {
-        isFormulierGeldig = false;
-        if (!eersteFouteVeld) {
-          eersteFouteVeld = item.input;
-        }
-      }
-    });
-
-    // Bij fouten: focus op het eerste ongeldige veld
-    if (!isFormulierGeldig) {
-      if (eersteFouteVeld) eersteFouteVeld.focus();
-      return;
-    }
-
-    // Bij succes: Toon bevestiging en reset het formulier
-    statusMelding.textContent = "Bedankt! Je bericht is correct verwerkt.";
-    statusMelding.classList.add("succes");
-    
-    form.reset();
+    verwerkVerzending(event, form, veldenConfig, statusMelding);
   });
 }
 
 // Script pas uitvoeren als de DOM geladen is
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initContactForm);
+  document.addEventListener("DOMContentLoaded", ContactForm);
 } else {
   ContactForm();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

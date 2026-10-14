@@ -55,7 +55,7 @@ function vertaalWeercode(code) {
 async function haalWeerData(lat = 52.07, lon = 4.30) {
   const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
 
-  const response = await fetch(apiUrl);
+  const response = await fetch(apiUrl); 
 
   if (!response.ok) {
     throw new Error(`Netwerkfout: status ${response.status}`);
@@ -171,7 +171,7 @@ async function Weer() {
 
 // Zorg dat het script correct start
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initWeer);
+  document.addEventListener("DOMContentLoaded", Weer);
 } else {
   Weer();
 }

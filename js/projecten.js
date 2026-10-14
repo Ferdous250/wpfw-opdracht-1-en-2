@@ -12,9 +12,9 @@ const projectenData = [
   },
   {
     id: 2,
-    titel: "WPFW Opdrachten",
-    beschrijving: "Verzameling van opdrachten (6 totaal) voor Web Programming Frameworks (WPFW) opgebouwd met responsive design en DOM-manipulatie.",
-    categorie: "Web",
+    titel: "Hotel Simulatie",
+    beschrijving: "een opdracht om een simulatie te bouwen waarin gasten in/uitchecken en activiteiten kunnen gaan doen.",
+    categorie: "Applicatie",
     technieken: ["HTML5", "CSS3", "JavaScript", "DOM"]
   },
   {
@@ -52,7 +52,7 @@ function renderProjecten(projecten) {
     return;
   }
 
-  // Elke card bouwen met createElement/textContent
+  // Elke kasart bouwen met createElement/textContent
   projecten.forEach((project) => {
     const card = document.createElement("article");
     card.className = "project-card";

@@ -26,50 +26,68 @@ const blogData = [
   },
 ];
 
-// 2. Functie om de blogposts dynamisch te renderen
+// Knop maken om de kaart in te klappen
+function maakWeekKnop(post) {
+  const button = document.createElement("button");
+  button.classList.add("week-header");
+  button.setAttribute("aria-expanded", "false");
+  button.innerHTML = `
+      <span><strong>${post.week}</strong>: ${post.titel}</span>
+      <span class="pijl">▼</span>
+    `;
+  return button;
+}
+
+// Inhoudsblok aanmaken voor de tekst van de week
+function maakWeekInhoud(post) {
+  const content = document.createElement("div");
+  content.classList.add("week-content");
+  
+  const text = document.createElement("t");
+  text.textContent = post.inhoud;
+  content.appendChild(text);
+  return content;
+}
+
+// Zorg ervoor dat het in- en uitklappen werkt bij een klik op de knop
+function koppelToggle(card, button, content) {
+  button.addEventListener("click", () => {
+
+    const isOpen = card.classList.toggle("open");
+    button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    content.style.maxHeight = isOpen ? content.scrollHeight + "px" : "0";
+  });
+}
+
+// Alles samenvoegen tot één complete week-kaart
+function maakBlogKaart(post) {
+  const card = document.createElement("div");
+  card.classList.add("week-card");
+
+  const button = maakWeekKnop(post);
+  const content = maakWeekInhoud(post);
+  koppelToggle(card, button, content);
+
+  
+  card.appendChild(button); //hier voegt ik de knop toe aan de kaart
+  card.appendChild(content); //hier voeg ik de inhoud toe aan de kaart
+  return card;
+}
+
+// Alle blogs ophalen en op de pagina zetten
 function renderBlog() {
   const container = document.getElementById("weken-container") || document.getElementById("blog-container");
   if (!container) return;
 
-  // Leeg de container eerst
+  // Eerst de container leegmaken om dubbele gegevens te voorkkomen
   container.innerHTML = "";
 
-  // Loop door de data en maak DOM-elementen aan
-  blogData.forEach((item) => {
-    // Maak hoofdkaart
-    const card = document.createElement("div");
-    card.classList.add("week-card");
-
-    // Maak de inklapbare knop (Header)
-    const button = document.createElement("button");
-    button.classList.add("week-header");
-    button.setAttribute("aria-expanded", "false");
-    button.innerHTML = `
-      <span><strong>${item.week}</strong>: ${item.titel}</span>
-      <span class="pijl">▼</span>
-    `;
-
-    // Inhoudsblok
-    const content = document.createElement("div");
-    content.classList.add("week-content");
-    
-    const paragraph = document.createElement("p");
-    paragraph.textContent = item.inhoud;
-    content.appendChild(paragraph);
-
-    // Event Listener voor het in- en uitklappen
-    button.addEventListener("click", () => {
-      const isOpen = card.classList.toggle("open");
-      button.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      content.style.maxHeight = isOpen ? content.scrollHeight + "px" : "0";
-    });
-
-    // Voegt de knop en inhoud toe aan de kaart, en de kaart aan de container
-    card.appendChild(button);
-    card.appendChild(content);
-    container.appendChild(card);
+  // Door de lijst lopen en alle kaarten toevoegen
+  blogData.forEach((card) => {  
+    container.appendChild(maakBlogKaart(card));//
   });
 }
 
-// 3. Voer de functie uit zodra de DOM geladen is
-document.addEventListener("DOMContentLoaded", renderBlog); // Zorgt ervoor dat de blogposts worden weergegeven zodra de pagina volledig is geladen
+// Meteen uitvoeren als de pagina geladen is
+document.addEventListener("DOMContentLoaded", renderBlog);
+
