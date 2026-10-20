@@ -37,6 +37,7 @@ const projectenData = [
 const projectenContainer = document.getElementById("projecten-container");
 const searchInput = document.getElementById("search-input"); // Input veld voor zoektermen
 const categoryFilter = document.getElementById("category-filter");
+
 const sortSelect = document.getElementById("sort-select");
 
 // 2. Functie om project-cards dynamisch te maken en te tonen
@@ -48,7 +49,7 @@ function renderProjecten(projecten) {
     const noResults = document.createElement("p");  
     noResults.className = "no-results";
     noResults.textContent = "Geen projecten gevonden die voldoen aan de zoekcriteria.";
-    projectenContainer.appendChild(noResults);
+    projectenContainer.appendChild(noResults);  
     return;
   }
 
@@ -73,7 +74,7 @@ function renderProjecten(projecten) {
       tagsContainer.appendChild(tag);
     });
 
-    card.appendChild(title);
+    card.appendChild(title); // titel,desc en tagscontainer onderelkaar toevoegen en in projectcontainer word het opgebouwd .
     card.appendChild(desc);
     card.appendChild(tagsContainer);
 
@@ -114,7 +115,7 @@ function filterAndSortProjecten() {
 }
 
 // 4. Event Listeners koppelen
-searchInput.addEventListener("input", filterAndSortProjecten);
+searchInput.addEventListener("input", filterAndSortProjecten);  
 categoryFilter.addEventListener("change", filterAndSortProjecten); 
 sortSelect.addEventListener("change", filterAndSortProjecten);
 

@@ -1,17 +1,19 @@
 // ==========================================
-// 1. PURE VALIDATIEFUNCTIES (Logica)
+// 1. VALIDATIEFUNCTIES 
 // ==========================================
 
-// Controleert of naam niet leeg is (spaties negeren via .trim())
+// Controleert of naam niet leeg is ( .trim() erbij gezet om spatie te negeren)
 function isNaamGeldig(waarde) {
   return waarde.trim().length > 0;
 }
 
+
 // Controleert e-mailadres (iets@iets.iets)
 function isEmailGeldig(waarde) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //
-  return emailRegex.test(waarde.trim());
+  return emailRegex.test(waarde.trim()); 
 }
+
 
 // Controleert of bericht minimaal 10 tekens bevat
 function isBerichtGeldig(waarde) {
@@ -19,7 +21,7 @@ function isBerichtGeldig(waarde) {
 }
 
 // ==========================================
-// 2. DOM MANIPULATIE FUNCTIES (Toegankelijkheid & UI)
+// 2. DOM MANIPULATIE 
 // ==========================================
 
 function toonFout(inputElement, foutElement, bericht) {
@@ -41,6 +43,20 @@ function valideerVeld(veldConfig) {
     wisFout(veldConfig.input, veldConfig.foutEl);
   }
   return isGeldig;
+}
+
+// Valideert alle velden en geeft het eerste ongeldige veld terug (of null)
+function valideerAlleVelden(veldenConfig) {
+  let eersteFouteVeld = null;
+
+  veldenConfig.forEach((veld) => {
+    const isGeldig = valideerVeld(veld);
+    if (!isGeldig && !eersteFouteVeld) {
+      eersteFouteVeld = veld.input;
+    }
+  });
+
+  return eersteFouteVeld;
 }
 
 // ==========================================
@@ -82,6 +98,8 @@ function liveValidatie(veldenConfig) {
   });
 }
 
+
+
 function resetStatusMelding(statusMelding) {
   statusMelding.textContent = "";
   statusMelding.className = "status-melding";
@@ -92,10 +110,12 @@ function toonSucces(statusMelding) {
   statusMelding.classList.add("succes");
 }
 
-function verwerkVerzending(event, form, veldenConfig, statusMelding) {
-  event.preventDefault(); // Voorkom standaard browser-verzending
 
-  resetStatusmelding(statusMelding);
+
+function verwerkVerzending(event, form, veldenConfig, statusMelding) {
+  event.preventDefault(); // Voorkom standaard browser-verzending voor criteria 2 
+
+  resetStatusMelding(statusMelding);
 
   const eersteFouteVeld = valideerAlleVelden(veldenConfig);
 
@@ -111,15 +131,18 @@ function verwerkVerzending(event, form, veldenConfig, statusMelding) {
   form.reset();
 }
 
-function ContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
 
-  const veldenConfig = maakVeldenConfig();
+
+function ContactForm() {
+  const form = document.getElementById("contact-form");  //zoekt formulier op
+  if (!form) return;                        //als pagina niet bestaat stopt code 
+
+  const veldenConfig = maakVelden();
+
 
   const statusMelding = document.getElementById("contact-melding");
 
-  koppelLiveValidatie(veldenConfig);
+  liveValidatie(veldenConfig);
 
   // Afhandeling bij het verzenden van het formulier
   form.addEventListener("submit", (event) => {

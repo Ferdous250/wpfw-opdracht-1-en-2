@@ -51,13 +51,13 @@
 .week-content {                     /*hier maak ik de inhoud van de weekbblokken standaard dicht.*/
   max-height: 0;                       
   overflow: hidden;                 /* met overflow: hidden zorg ik ervoor dat de inhoud niet zichtbaar is als het blok dicht is */
-  transition: max-height 0.3s ease-out, padding 0.3s ease; /* animatie voor het openen/sluiten van de inhoud */
-  padding: 0 20px;   
+  transition: max-height 0.3s ease-out, 0.3s ease-out; /* animatie voor het openen/sluiten van de inhoud */
   background-color: #fafafa;      
   box-sizing: border-box;
 }
 
-.week-card.open .week-content {       /*als weekbllok open is is de inhoud dus zichtbaarr*/
+.week-content p {                   /* de padding op de tekst zelf*/
+  margin: 0;
   padding: 15px 20px;
   border-top: 1px solid #eeeeee;
 }

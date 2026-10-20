@@ -32,7 +32,7 @@ function maakWeekKnop(post) {
   button.classList.add("week-header");
   button.setAttribute("aria-expanded", "false");
   button.innerHTML = `
-      <span><strong>${post.week}</strong>: ${post.titel}</span>
+      <span><strong>${post.week}</strong>: ${post.titel}</span> 
       <span class="pijl">▼</span>
     `;
   return button;
@@ -43,7 +43,7 @@ function maakWeekInhoud(post) {
   const content = document.createElement("div");
   content.classList.add("week-content");
   
-  const text = document.createElement("t");
+  const text = document.createElement("p");
   text.textContent = post.inhoud;
   content.appendChild(text);
   return content;
@@ -55,6 +55,7 @@ function koppelToggle(card, button, content) {
 
     const isOpen = card.classList.toggle("open");
     button.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    
     content.style.maxHeight = isOpen ? content.scrollHeight + "px" : "0";
   });
 }

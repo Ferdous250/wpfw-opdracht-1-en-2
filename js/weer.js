@@ -50,22 +50,26 @@ function vertaalWeercode(code) {
 
 /**
  * Haalt de weerdata op van Open-Meteo.
- * Gebruikt de actuele API-parameter: current=temperature_2m,weather_code
+ * Gebruikt de actuele API-parameter
  */
 async function haalWeerData(lat = 52.07, lon = 4.30) {
   const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
 
-  const response = await fetch(apiUrl); 
+  const response = await fetch(apiUrl); //haalt de status op en verbind
 
-  if (!response.ok) {
+  if (!response.ok) {     //controlleren van de status
     throw new Error(`Netwerkfout: status ${response.status}`);
   }
 
-  const data = await response.json();
 
-  if (!data.current) {
+  
+  const data = await response.json();   //leest de inhoud die het krijgt en omzetten naar object
+
+  if (!data.current) {    //hier controleerrd of de data erin zit.
     throw new Error("Geen actuele weergegevens gevonden in de API-respons.");
   }
+
+
 
   return {
     temperatuur: Math.round(data.current.temperature_2m),
@@ -110,7 +114,7 @@ function toonWeerData(container, temperatuur, weerInfo, plaatsnaam) {
   kaart.appendChild(icoonSpan);
   kaart.appendChild(tekstDiv);
 
-  // Veilig de container leegmaken en de nieuwe kaart invoegen zonder innerHTML
+  // Veilig de container leegmaken en de nieuwe kaart invoegen zonder HTML
   container.replaceChildren(kaart);
 }
 
