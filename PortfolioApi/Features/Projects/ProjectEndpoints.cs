@@ -14,15 +14,16 @@ public static class ProjectEndpoints
         // Hiermee kan ik alle projecten ophalen
         group.MapGet("", GetAll);
 
+
         // Hiermee kan ik een project ophalen met het id
         group.MapGet("{id:int}", GetById).WithName("GetProject");
 
         // Hiermee kan ik een nieuw project toevoegen
         group.MapPost("", Create);
 
+
         // Hiermee kan ik een bestaand project aanpassen
         group.MapPut("{id:int}", Update);
-
         // Hiermee kan ik een project verwijderen
         group.MapDelete("{id:int}", Delete);
     }
