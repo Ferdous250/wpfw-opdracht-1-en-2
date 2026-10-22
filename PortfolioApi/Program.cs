@@ -1,19 +1,26 @@
 using PortfolioApi.Features.Projects;
 using Microsoft.EntityFrameworkCore;
 using PortfolioApi.Data;
+using PortfolioApi.Features.Blogposts;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+//hier voeg ik services toe aan de container
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddValidation();
 
 //deze regel voor de databse toegevoegd
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
+//hier registreert het de services
 builder.Services.AddScoped<IProjectService, ProjectService>();
+
+
+//hier de blogpost
+builder.Services.AddScoped<IBlogpostService, BlogpostService>();
 
 
 
@@ -31,8 +38,6 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-
-
 // HTTP request instellen
 if (app.Environment.IsDevelopment())
 {
@@ -48,14 +53,13 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate(); // Zorgt ervoor dat migraties automatisch gedriaid worden bij opstarten
 }
 
-
+app.MapBlogpostEndpoints();
 
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
 
 app.MapProjects();
-
 
 app.Run();
 
