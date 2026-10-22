@@ -1,10 +1,12 @@
-
-
 namespace PortfolioApi.Features.Projects;
 
-//hier een interface gemaakt klassen gebruiken de methode en in projectservice word de methode opgebouwd.
 public interface IProjectService
 {
-    IEnumerable<ProjectResponse> GetAll();
-    ProjectResponse? GetById(int id); 
+    Task<IEnumerable<ProjectResponse>> GetAllAsync(CancellationToken cancelt = default);
+    Task<ProjectResponse?> GetByIdAsync(int id, CancellationToken cancelt = default);
+
+    Task<ProjectResponse> CreateAsync(CreateProjectRequest request, CancellationToken cancelt = default);
+
+    Task<ProjectResponse?> UpdateAsync(int id, UpdateProjectRequest request, CancellationToken cancelt = default);
+    Task<bool> DeleteAsync(int id, CancellationToken cancelt = default);
 }

@@ -52,6 +52,26 @@ namespace PortfolioApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Projects");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Beschrijving = "Een ASP.NET Core Web API voor mijn persoonlijke portfolio.",
+                            Categorie = "Backend",
+                            Datum = new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            GitHubUrl = "https://github.com/jouw-gebruikersnaam/portfolio-api",
+                            Titel = "Portfolio API"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Beschrijving = "Een handige webapplicatie om dagelijkse taken te beheren.",
+                            Categorie = "Fullstack",
+                            Datum = new DateTime(2026, 2, 10, 0, 0, 0, 0, DateTimeKind.Utc),
+                            GitHubUrl = "https://github.com/jouw-gebruikersnaam/task-manager",
+                            Titel = "Task Manager App"
+                        });
                 });
 #pragma warning restore 612, 618
         }
