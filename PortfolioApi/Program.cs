@@ -53,11 +53,11 @@ using (var scope = app.Services.CreateScope())
     context.Database.Migrate(); // Zorgt ervoor dat migraties automatisch gedriaid worden bij opstarten
 }
 
-app.MapBlogpostEndpoints();
-
 app.UseHttpsRedirection();
 
 app.UseCors("AllowAll");
+
+app.MapBlogpostEndpoints();
 
 app.MapProjects();
 

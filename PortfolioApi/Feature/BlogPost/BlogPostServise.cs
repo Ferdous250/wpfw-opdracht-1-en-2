@@ -18,7 +18,7 @@ public class BlogpostService : IBlogpostService
         b.Titel,
         b.Inhoud,
         b.Auteur,
-        b.Datum
+        b.Publicatiedatum
     );
 
     // 2. Alle blogposts opvragen (Async + AsNoTracking dit zorgt voor beteree performance)
@@ -39,7 +39,7 @@ public class BlogpostService : IBlogpostService
         return blogpost is null ? null : ToResponse(blogpost);
     }
 
-    
+
 
     // Een nieuwe blogpost aanmaken (POST)
     public async Task<BlogpostResponse> CreateAsync(CreateBlogpostRequest request, CancellationToken ct = default)
@@ -49,7 +49,7 @@ public class BlogpostService : IBlogpostService
             Titel = request.Titel,
             Inhoud = request.Inhoud,
             Auteur = request.Auteur,
-            Datum = request.Datum
+            Publicatiedatum = request.Publicatiedatum
         };
 
         _context.Blogposts.Add(blogpost);
@@ -69,7 +69,7 @@ public class BlogpostService : IBlogpostService
         blogpost.Titel = request.Titel;
         blogpost.Inhoud = request.Inhoud;
         blogpost.Auteur = request.Auteur;
-        blogpost.Datum = request.Datum;
+        blogpost.Publicatiedatum = request.Publicatiedatum;
 
         await _context.SaveChangesAsync(ct);
 

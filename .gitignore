@@ -1,2 +1,10 @@
 .DS_Store
 .vscode/
+
+# .NET build-uitvoer
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user

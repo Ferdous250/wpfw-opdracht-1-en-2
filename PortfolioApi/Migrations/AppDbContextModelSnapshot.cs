@@ -34,12 +34,12 @@ namespace PortfolioApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Datum")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Inhoud")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Publicatiedatum")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Titel")
                         .IsRequired()

@@ -8,7 +8,7 @@ public record BlogpostResponse(
     string Titel,
     string Inhoud,
     string Auteur,
-    DateTime Datum
+    DateTime Publicatiedatum
 );
 
 //  hier staat wat de gebruiker dus meestuurt bij het aanmaken (POST)
@@ -24,7 +24,7 @@ public class CreateBlogpostRequest
 
     public string Auteur { get; set; } = string.Empty;
 
-    public DateTime Datum { get; set; } = DateTime.UtcNow;
+    public DateTime Publicatiedatum { get; set; } = DateTime.UtcNow;
 }
 
 //  hier staat wat de gebruiker meestuurt bij het bijwerken (PUTT)
@@ -40,5 +40,5 @@ public class UpdateBlogpostRequest
 
     public string Auteur { get; set; } = string.Empty;
 
-    public DateTime Datum { get; set; } = DateTime.UtcNow;
+    public DateTime Publicatiedatum { get; set; } = DateTime.UtcNow;
 }

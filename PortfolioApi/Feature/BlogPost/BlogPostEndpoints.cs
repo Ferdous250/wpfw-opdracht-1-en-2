@@ -18,6 +18,7 @@ public static class BlogpostEndpoints
         // Nieuwe blogpost aanmaken
         group.MapPost("", Create);
 
+
         // Bestaande blogpost bijwerken
         group.MapPut("{id:int}", Update);
 
@@ -41,7 +42,7 @@ public static class BlogpostEndpoints
 
 
 
-    private static async Task<CreatedAtRoute<BlogpostResponse>> Create([FromBody] CreateBlogpostRequest request, IBlogpostService service, CancellationToken ct)
+    private static async Task<CreatedAtRoute<BlogpostResponse>> Create(CreateBlogpostRequest request, IBlogpostService service, CancellationToken ct)
     {
         var response = await service.CreateAsync(request, ct);
         
@@ -51,13 +52,13 @@ public static class BlogpostEndpoints
 
 
 
-    private static async Task<Results<Ok<BlogpostResponse>, NotFound>> Update(int id, [FromBody] UpdateBlogpostRequest request, IBlogpostService service, CancellationToken ct)
+    private static async Task<Results<Ok<BlogpostResponse>, NotFound>> Update(int id, UpdateBlogpostRequest request, IBlogpostService service, CancellationToken ct)
     {
         var response = await service.UpdateAsync(id, request, ct);
         return response is not null ? TypedResults.Ok(response) : TypedResults.NotFound();
     }
 
-    
+
 
     private static async Task<Results<NoContent, NotFound>> Delete(int id, IBlogpostService service, CancellationToken ct)
     {
