@@ -26,6 +26,18 @@ claude: **"hier is mijn hele css code kun je even kopjes zetten wat met elkaar t
 
 gemini **"kun je een voorbeeld geven van hoe je een simpele contactformulier kan maken in VSC met HTML, JAVASCRIPT en CSS waarmee ik kan oefenen"**  met het antwoord die ik terug kreeg en youtube video's heb ik geoefend met dit te maken.
 
+gemini: **kun je het verschil tussen een minial API vs Controller uitleggenm geef ook voorbeelden en voordelen en nadelen ervan**   gebruikt om wat meer te weten te komen over de twee en heb zelf ook op verschillende website naar informatie gezocht.
+
+claude: **kun je een voorbeeld geven hoe een minimal API opbouw eruit ziet** gebruikt om te zien hoe de structuur eruit ziet en de opbouw ervan om er daarna met de slides 5 en 6 aan de gang te gaan met opdracht 3 
+
+gemini: **ik ben van plan om te werken met minimal API daarbij is het zo dat je direct in program.cs werk of via extensies toch** gebruikt om meer te weten te komen over de structuur om verder te gaan met de opdracht
+
+claude: **hier is een foto van de swagger omgeveing m,et de projecten en blog post kun je hiervan even een tabel van maken** gebruikt om een tabel te maken van de swagger omgeveing zodat ik die zelf dan alleen hoeft aan te passen waar nodig. 
+
+gemini: **hier is een tekst die ik geschreven heb controleer op spelfouten LET OP verander de tekst NIET, als je iets hebt veranderd geef het ook aan waar zo zodat ik het kan controleren.**  gebruikt voor spelfouten 
+
+claude: **hier is opdracht 3 kun je in excel een schema maken van alle criteriums haal het uitelkaar, ik wil ook een optie/vinkje hebben met het is af(groen)   nog te doen(rood) zodat ik alles kan bijhouden** gebruikt om een excel sheet te maken met alle criteria die ik dan kan bijhouden.
+
 
 
 

@@ -3,8 +3,13 @@ using PortfolioApi.Data;
 
 namespace PortfolioApi.Features.Projects;
 
+//hier heb ik dus de interface geimplementeerd
 public class ProjectService : IProjectService
 {
+
+    // ASP.NEt geeft hier automatisch AppDBContext mee via injection, heb ik geregistreerd in program.cs, 
+    // nu hoef ik zelf geen new AppDbContext() te gebruiken.
+    //readonly zorgt ervoor dat de veld na de constructor niet opnieuw kan meegegevn.
     private readonly AppDbContext _context;
 
     public ProjectService(AppDbContext context)
@@ -12,7 +17,9 @@ public class ProjectService : IProjectService
         _context = context;
     }
 
-    // 1. hier een centrale plek gemaakt voor de mapping (hoort bij Criterium 7)
+
+
+    // 1. hier heb ik een centrale plek gemaakt voor de mapping. wil ik iets erbij doen kan dat hier. zet het om in een DTO
     private static ProjectResponse ToResponse(Project p) => new(
         p.Id,
         p.Titel,
@@ -22,15 +29,21 @@ public class ProjectService : IProjectService
         p.Datum
     );
 
+
+
+
     // 2. Alle projecten opvragen (Async + AsNoTracking dit zorgt voor beteree performance)
     public async Task<IEnumerable<ProjectResponse>> GetAllAsync(CancellationToken ct = default)
     {
-        var projects = await _context.Projects
-            .AsNoTracking()
-            .ToListAsync(ct);
+        var projects = await _context.Projects  //is de DbSet dus de tabel Project 
+            .AsNoTracking() // heb deze erbij gezet zorgt ervoor dat EF Core de objecten niet hoeft te volgen op wijzigingen.
+            .ToListAsync(ct); // hier voert het pas de query uit. hier gaat de EF naar de database
 
-        return projects.Select(ToResponse);
+
+        return projects.Select(ToResponse); // zorgt ervoor dat elk project naar een projectresponse veradnerd.
     }
+
+
 
     // 3. Eén project opvragen op basis van ID (Async)
     public async Task<ProjectResponse?> GetByIdAsync(int id, CancellationToken ct = default)
@@ -58,6 +71,8 @@ public class ProjectService : IProjectService
 
         return ToResponse(project);
     }
+
+
 
     // 4. Een bestaand project bijwerken (PUT)
     public async Task<ProjectResponse?> UpdateAsync(int id, UpdateProjectRequest request, CancellationToken ct = default)

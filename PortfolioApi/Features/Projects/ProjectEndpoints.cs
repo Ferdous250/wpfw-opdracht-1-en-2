@@ -9,23 +9,23 @@ public static class ProjectEndpoints
     public static void MapProjects(this IEndpointRouteBuilder app)
     {
         // Hier maak ik een groep aan voor alle project endpoints
-        var group = app.MapGroup("/api/projects").WithTags("Projects");
+        var groep = app.MapGroup("/api/projects").WithTags("Projects");
 
         // Hiermee kan ik alle projecten ophalen
-        group.MapGet("", GetAll);
+        groep.MapGet("", GetAll);
 
 
         // Hiermee kan ik een project ophalen met het id
-        group.MapGet("{id:int}", GetById).WithName("GetProject");
+        groep.MapGet("{id:int}", GetById).WithName("GetProject");
 
         // Hiermee kan ik een nieuw project toevoegen
-        group.MapPost("", Create);
+        groep.MapPost("", Create);
 
 
         // Hiermee kan ik een bestaand project aanpassen
-        group.MapPut("{id:int}", Update);
+        groep.MapPut("{id:int}", Update);
         // Hiermee kan ik een project verwijderen
-        group.MapDelete("{id:int}", Delete);
+        groep.MapDelete("{id:int}", Delete);
     }
 
 

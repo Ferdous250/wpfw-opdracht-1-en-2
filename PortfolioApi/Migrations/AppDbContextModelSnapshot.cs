@@ -88,17 +88,17 @@ namespace PortfolioApi.Migrations
                             Beschrijving = "Een ASP.NET Core Web API voor mijn persoonlijke portfolio.",
                             Categorie = "Backend",
                             Datum = new DateTime(2026, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
-                            GitHubUrl = "https://github.com/jouw-gebruikersnaam/portfolio-api",
+                            GitHubUrl = "https://github.com/Ferdous250/wpfw-opdracht-1-en-2",
                             Titel = "Portfolio API"
                         },
                         new
                         {
                             Id = 2,
-                            Beschrijving = "Een handige webapplicatie om dagelijkse taken te beheren.",
+                            Beschrijving = "Een handige webapplicatie.",
                             Categorie = "Fullstack",
                             Datum = new DateTime(2026, 2, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            GitHubUrl = "https://github.com/jouw-gebruikersnaam/task-manager",
-                            Titel = "Task Manager App"
+                            GitHubUrl = "https://github.com/Ferdous250/wpfw-opdracht-1-en-2",
+                            Titel = "Task App"
                         });
                 });
 #pragma warning restore 612, 618
