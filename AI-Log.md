@@ -38,6 +38,10 @@ gemini: **hier is een tekst die ik geschreven heb controleer op spelfouten LET O
 
 claude: **hier is opdracht 3 kun je in excel een schema maken van alle criteriums haal het uitelkaar, ik wil ook een optie/vinkje hebben met het is af(groen)   nog te doen(rood) zodat ik alles kan bijhouden** gebruikt om een excel sheet te maken met alle criteria die ik dan kan bijhouden.
 
+claude **hier is mijn mappenstructuur die ik heb ik heb nu meerdere bestanden erbij gemaakt voor de minimal API kijk op de screenshot die ik stuur en vul even die mappen structuur aan bewaar de structuur die ik al had** ik heb hier even de mappenstructuur met de nieuwe bestanden laten aanmaken dit kost anders veel tijd en het is alleen maar de bestadnnamen invullen onderelkaar.
+
+claude: **kun je een klein voorbeeld geven van een lagendigram swagger UI naar minimalAPI route naar service naar dbcontect naar sql server en dan DTO als JSON terug.** heb naar voorbeelden gekeken hoe ik dit kan maken en het daarna uitwerken hoe ik miijn code heb gemaakt.
+
 
 
 

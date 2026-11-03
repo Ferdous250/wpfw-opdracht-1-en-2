@@ -12,7 +12,7 @@ public class BlogpostService : IBlogpostService
         _context = context;
     }
 
-    // 1. hier een centrale plek gemaakt voor de mapping (hoort bij Criterium 7)
+    // 1. hier een centrale plek gemaakt voor de mapping 
     private static BlogpostResponse ToResponse(Blogpost b) => new(
         b.Id,
         b.Titel,

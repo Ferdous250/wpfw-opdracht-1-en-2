@@ -164,7 +164,7 @@ async function Weer() {
     // 2. Transformatie (gescheiden functie)
     const weerInfo = vertaalWeercode(code);
 
-    // 3. Renderen (gescheiden functie, met plaats als parameter)
+    // 3. Renderen (gescheiden functie
     toonWeerData(container, temperatuur, weerInfo, standaardPlaats);
 
   } catch (error) {

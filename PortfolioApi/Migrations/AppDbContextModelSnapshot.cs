@@ -95,7 +95,7 @@ namespace PortfolioApi.Migrations
                         {
                             Id = 2,
                             Beschrijving = "Een handige webapplicatie.",
-                            Categorie = "Fullstack",
+                            Categorie = "Frontend",
                             Datum = new DateTime(2026, 2, 10, 0, 0, 0, 0, DateTimeKind.Utc),
                             GitHubUrl = "https://github.com/Ferdous250/wpfw-opdracht-1-en-2",
                             Titel = "Task App"

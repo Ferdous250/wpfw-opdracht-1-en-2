@@ -30,7 +30,7 @@ public static class ProjectEndpoints
 
 
 
-    // Deze methode haalt alle projecten op
+    // hier methode   haalt alle projecten op
     private static async Task<Ok<IEnumerable<ProjectResponse>>> GetAll(IProjectService service, CancellationToken ct)
     {
         var projects = await service.GetAllAsync(ct);

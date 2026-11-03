@@ -37,7 +37,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
             Id = 2,
             Titel = "Task App",
             Beschrijving = "Een handige webapplicatie.",
-            Categorie = "Fullstack",
+            Categorie = "Frontend",
             GitHubUrl = "https://github.com/Ferdous250/wpfw-opdracht-1-en-2",
             Datum = new DateTime(2026, 2, 10, 0, 0, 0, DateTimeKind.Utc)
         }

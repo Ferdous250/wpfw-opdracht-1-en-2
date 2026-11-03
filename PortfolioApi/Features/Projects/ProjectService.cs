@@ -19,7 +19,7 @@ public class ProjectService : IProjectService
 
 
 
-    // 1. hier heb ik een centrale plek gemaakt voor de mapping. wil ik iets erbij doen kan dat hier. zet het om in een DTO
+    //  hier heb ik een centrale plek gemaakt voor de mapping. wil ik iets erbij doen kan dat hier. zet het om in een DTO
     private static ProjectResponse ToResponse(Project p) => new(
         p.Id,
         p.Titel,
@@ -32,7 +32,7 @@ public class ProjectService : IProjectService
 
 
 
-    // 2. Alle projecten opvragen (Async + AsNoTracking dit zorgt voor beteree performance)
+    //  Alle projecten opvragen (Async + AsNoTracking dit zorgt voor beteree performance)
     public async Task<IEnumerable<ProjectResponse>> GetAllAsync(CancellationToken ct = default)
     {
         var projects = await _context.Projects  //is de DbSet dus de tabel Project 
@@ -45,7 +45,7 @@ public class ProjectService : IProjectService
 
 
 
-    // 3. Eén project opvragen op basis van ID (Async)
+    //  Eén project opvragen op basis van ID (Async)
     public async Task<ProjectResponse?> GetByIdAsync(int id, CancellationToken ct = default)
     {
         var project = await _context.Projects.FindAsync(new object[] { id }, ct);
@@ -54,7 +54,7 @@ public class ProjectService : IProjectService
     }
 
 
-    // 3. Een nieuw project aanmaken (POST)
+    //  Een nieuw project aanmaken (POST)
     public async Task<ProjectResponse> CreateAsync(CreateProjectRequest request, CancellationToken ct = default)
     {
         var project = new Project
@@ -74,7 +74,7 @@ public class ProjectService : IProjectService
 
 
 
-    // 4. Een bestaand project bijwerken (PUT)
+    //   project bijwerken (PUT)
     public async Task<ProjectResponse?> UpdateAsync(int id, UpdateProjectRequest request, CancellationToken ct = default)
     {
         var project = await _context.Projects.FindAsync(new object[] { id }, ct);
@@ -91,7 +91,7 @@ public class ProjectService : IProjectService
         return ToResponse(project);
     }
 
-    // 5. Een project verwijderen (DELETE)
+    //  Een project verwijderen (DELETE)
     public async Task<bool> DeleteAsync(int id, CancellationToken ct = default)
     {
         var project = await _context.Projects.FindAsync(new object[] { id }, ct);

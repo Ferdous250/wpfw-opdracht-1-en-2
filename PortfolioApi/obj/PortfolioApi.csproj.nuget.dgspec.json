@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\school\\vs code projecten\\WPFW-opdracht-1\\PortfolioApi\\PortfolioApi.csproj": {}
+    "C:\\school\\vs code projecten\\WPFW-opdracht-1\\portfolioApi\\PortfolioApi.csproj": {}
   },
   "projects": {
-    "C:\\school\\vs code projecten\\WPFW-opdracht-1\\PortfolioApi\\PortfolioApi.csproj": {
+    "C:\\school\\vs code projecten\\WPFW-opdracht-1\\portfolioApi\\PortfolioApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\school\\vs code projecten\\WPFW-opdracht-1\\PortfolioApi\\PortfolioApi.csproj",
+        "projectUniqueName": "C:\\school\\vs code projecten\\WPFW-opdracht-1\\portfolioApi\\PortfolioApi.csproj",
         "projectName": "PortfolioApi",
-        "projectPath": "C:\\school\\vs code projecten\\WPFW-opdracht-1\\PortfolioApi\\PortfolioApi.csproj",
+        "projectPath": "C:\\school\\vs code projecten\\WPFW-opdracht-1\\portfolioApi\\PortfolioApi.csproj",
         "packagesPath": "C:\\Users\\ferdo\\.nuget\\packages\\",
-        "outputPath": "C:\\school\\vs code projecten\\WPFW-opdracht-1\\PortfolioApi\\obj\\",
+        "outputPath": "C:\\school\\vs code projecten\\WPFW-opdracht-1\\portfolioApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ferdo\\AppData\\Roaming\\NuGet\\NuGet.Config"
