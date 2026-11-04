@@ -21,6 +21,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>  //databaseklasse in de D
 
 //hier koppel ik de interface aan de klasse. als endpoint vraag om Iproject/blogservicee geeft ASP.NEt projectservicer mee 
 builder.Services.AddScoped<IProjectService, ProjectService>();
+
 builder.Services.AddScoped<IBlogpostService, BlogpostService>();
 
 

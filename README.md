@@ -3,7 +3,7 @@
 **Student:** Ferdous Uddin  
 **Studentnummer:** 25033433  
 **Klas:** Klas 1
-**Datum:** September 2026  
+**Datum:** November 2026  
 **Opleiding:** HBO ICT / SE3 - De Haagse Hogeschool  
 
 ## Projectbeschrijving
@@ -109,18 +109,18 @@ De backend heeft 10 routes, verdeeld over de features Projects en Blogposts.
 | GET               /api/projects          Haalt alle projecten op 
 | GET               /api/projects/{id}       Haalt één project op 
 | POST              /api/projects           Voegt een nieuw project toe 
-| PUT               /api/projects/{id}      Werkt een bestaand project bij 
-| DELETE            /api/projects/{id}      Verwijdert een project 
+| PUT               /api/projects/{id}       Werkt een bestaand project bij 
+| DELETE            /api/projects/{id}       Verwijdert een project 
 
 ### Blogposts
 
 | Methode       Endpoint                 Beschrijving 
 |
-| GET           /api/blogposts           Haalt alle blogposts op 
+| GET           /api/blogposts             Haalt alle blogposts op 
 | GET            /api/blogposts/{id}      Haalt één blogpost op 
-| POST          /api/blogposts`          Voegt een nieuwe blogpost toe 
+| POST          /api/blogposts`            Voegt een nieuwe blogpost toe 
 | PUT           /api/blogposts/{id}      Werkt een bestaande blogpost bij
-| DELETE        /api/blogposts/{id}      Verwijdert een blogpost 
+| DELETE        /api/blogposts/{id}       Verwijdert een blogpost 
 
 
 
